@@ -30,7 +30,6 @@ urls.changelog = "https://github.com/psychopy/psychopy-eyetracker-gazepoint/blob
 urls.documentation = "https://pages.github.com/psychopy/psychopy-eyetracker-gazepoint"
 urls.repository = "https://github.com/psychopy/psychopy-eyetracker-gazepoint"
 dependencies = [
-    "tobii_research"
 ]
 [tool.setuptools.packages.find]
 where = ["", "psychopy_eyetracker_gazepoint",]
