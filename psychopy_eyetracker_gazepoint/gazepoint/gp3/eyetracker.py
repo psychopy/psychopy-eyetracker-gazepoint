@@ -8,7 +8,7 @@ import sys
 
 from gevent import socket
 
-from psychopy.iohub.devides.eyetracker.eye_events import *
+from psychopy.iohub.devices.eyetracker.eye_events import *
 from psychopy.iohub.devices import Computer, Device
 from psychopy.iohub.devices.eyetracker import EyeTrackerDevice
 from psychopy.iohub.constants import EyeTrackerConstants
