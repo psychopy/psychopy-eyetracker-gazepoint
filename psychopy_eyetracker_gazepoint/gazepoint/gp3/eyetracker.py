@@ -450,7 +450,7 @@ class EyeTracker(EyeTrackerDevice):
 
             calibration.window.close()
 
-            calibration._unregisterEventMonitors()
+            # calibration._unregisterEventMonitors()
             calibration.clearAllEventBuffers()
 
         # Get calibration result and return to experiment process.
