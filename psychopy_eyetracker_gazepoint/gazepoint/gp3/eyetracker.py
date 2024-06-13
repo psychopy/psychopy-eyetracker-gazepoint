@@ -167,6 +167,35 @@ class EyeTracker(EyeTrackerDevice):
         self._ttfreq = self._waitForAck('TIME_TICK_FREQUENCY').get("FREQ")
 
         self._last_fix_evt = None
+    
+          
+    @staticmethod
+    def getCalibrationDict(calib):
+        """
+        Create a dict describing the given Calibration object, respecting this 
+        eyetracker's specific limitations.
+
+        Parameters
+        ----------
+        calib : psychopy.hardware.eyetracker.EyetrackerCalibration
+            Object to create a dict from
+        
+        Returns
+        -------
+        dict
+            Dict describing the given Calibration object
+        """
+        # call base function
+        asDict = EyeTrackerDevice.getCalibrationDict(calib)
+        # add gazepoint-specific attributes
+        asDict['use_builtin'] = False
+        asDict['target_delay'] = calib.targetDelay
+        asDict['target_duration'] = calib.targetDur
+        # remove unused attributes
+        asDict.pop('auto_pace')
+        asDict.pop('pacing_speed')
+
+        return asDict
 
     def trackerTime(self):
         """
