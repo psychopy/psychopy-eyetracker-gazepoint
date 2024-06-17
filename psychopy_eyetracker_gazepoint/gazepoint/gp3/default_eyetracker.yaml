@@ -1,4 +1,4 @@
-eyetracker.hw.gazepoint.gp3.EyeTracker:
+eyetracker.gazepoint.gp3.EyeTracker:
     # Indicates if the device should actually be loaded at experiment runtime.
     enable: True
 
