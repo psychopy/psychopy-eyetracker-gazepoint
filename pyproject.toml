@@ -49,7 +49,7 @@ tests = [
 where = ["", "psychopy_eyetracker_gazepoint",]
 
 [project.entry-points."psychopy.iohub.devices.eyetracker"]
-gazepoint = "psychopy_eyetracker_gazepoint.gazepoint"
+gp3 = "psychopy_eyetracker_gazepoint.gazepoint.gp3"
 
 [tool.setuptools.package-data]
 "*" = ["*.yaml"]
