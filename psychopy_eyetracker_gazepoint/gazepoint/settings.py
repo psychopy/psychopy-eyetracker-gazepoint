@@ -1,6 +1,6 @@
 from psychopy.localization import _translate
 from psychopy.experiment import Param
-from psychopy.experiment.settings.eyetracking import EyetrackerBackend
+from psychopy.experiment.components.settings.eyetracking import EyetrackerBackend
 
 
 class GazePointEyetrackerBackend(EyetrackerBackend):
