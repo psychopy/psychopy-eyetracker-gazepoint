@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "psychopy-eyetracker-gazepoint"
-version = "0.0.2"
+version = "0.0.3"
 description = "Extension package for PsychoPy which adds support for Gazepoint eyetrackers."
 readme = "README.md"
 requires-python = ">= 3.7"
@@ -50,6 +50,9 @@ where = ["", "psychopy_eyetracker_gazepoint",]
 
 [project.entry-points."psychopy.iohub.devices.eyetracker"]
 gp3 = "psychopy_eyetracker_gazepoint.gazepoint.gp3"
+
+[project.entry-points."psychopy.experiment.components.settings.eyetracker"]
+GazePointEyetrackerBackend = "psychopy_eyetracker_gazepoint.gazepoint.settings.GazePointEyetrackerBackend"
 
 [tool.setuptools.package-data]
 "*" = ["*.yaml"]
