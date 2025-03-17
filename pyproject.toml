@@ -51,7 +51,7 @@ where = ["", "psychopy_eyetracker_gazepoint",]
 [project.entry-points."psychopy.iohub.devices.eyetracker"]
 gp3 = "psychopy_eyetracker_gazepoint.gazepoint.gp3"
 
-[project.entry-points."psychopy.experiment.components.settings.eyetracker"]
+[project.entry-points."psychopy.experiment.components.settings.eyetracking"]
 GazePointEyetrackerBackend = "psychopy_eyetracker_gazepoint.gazepoint.settings.GazePointEyetrackerBackend"
 
 [tool.setuptools.package-data]
