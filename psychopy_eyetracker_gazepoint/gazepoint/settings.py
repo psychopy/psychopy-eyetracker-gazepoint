@@ -6,7 +6,7 @@ from psychopy.experiment.components.settings.eyetracking import EyetrackerBacken
 class GazePointEyetrackerBackend(EyetrackerBackend):
     """Experiment settings for the GazePoint GP3 eyetracker.
     """
-    label = 'GazePoint'
+    label = 'GazePoint GP3 (iohub)'
     key = 'eyetracker.hw.gazepoint.gp3.EyeTracker'
 
     needsFullscreen = False
