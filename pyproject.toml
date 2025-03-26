@@ -52,7 +52,7 @@ where = ["", "psychopy_eyetracker_gazepoint",]
 gp3 = "psychopy_eyetracker_gazepoint.gazepoint.gp3"
 
 [project.entry-points."psychopy.experiment.components.settings.eyetracking"]
-GazePointEyetrackerBackend = "psychopy_eyetracker_gazepoint.gazepoint.settings.GazePointEyetrackerBackend"
+GazePointEyetrackerBackend = "psychopy_eyetracker_gazepoint.gazepoint.settings:GazePointEyetrackerBackend"
 
 [tool.setuptools.package-data]
 "*" = ["*.yaml"]
