@@ -2,7 +2,7 @@
 Welcome to psychopy-eyetracker-gazepoint's documentation!
 =======================================================
 
-The `psychopy-eyetracker-gazepoint` plugin is designed to show you how to make a plugin.
+The `psychopy-eyetracker-gazepoint` plugin adds GazePoint to the supported eyetracker devices in ioHub.
 
 .. toctree::
    :maxdepth: 1
