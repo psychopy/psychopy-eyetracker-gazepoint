@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>psychopy_eyetracker_gazepoint.gazepoint.gp3.eyetracker &#8212; PsychoPy Eyetracker Gazepoint Plugin 0.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=536c50fe" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/psychopy.css?v=6c31395e" />
+    <script src="../../../../../_static/documentation_options.js?v=d20be8f5"></script>
+    <script src="../../../../../_static/doctools.js?v=b682be12"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../../../_static/js/jquery-fix.js"></script>
+    <script src="../../../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex/" />
+    <link rel="search" title="Search" href="../../../../../search/" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-96LHQFPY1F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-96LHQFPY1F');
+    </script>
+
+    <!-- News reel -->
+     <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // get all news reels
+        for (let reel of document.getElementsByClassName("news-reel")) {
+          // get all cards
+          let cards = Array.from(reel.getElementsByClassName("sd-card"))
+          // start off with the first card
+          reel.showItem = 0;
+          // define function to show the next node
+          let update = () => {
+            for (let item of cards) {
+              // get index
+              let index = cards.indexOf(item);
+              // show/hide according to index match
+              if (index === reel.showItem) {
+                console.log("Showing news item:", item)
+                item.style.display = "block";
+              } else {
+                item.style.display = "none";
+              }
+            }
+            // iterate shown index
+            reel.showItem += 1;
+            if (reel.showItem >= cards.length) {
+              reel.showItem -= cards.length;
+            }
+          }
+          // run once now
+          update()
+          // schedule to run every 5s
+          window.setInterval(update, 5000);
+        }
+      }, false);    
+     </script>
+
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+      _paq.push(["setCookieDomain", "*.psychopy.org"]);
+      _paq.push(["setDomains", ["*.psychopy.org","*.discourse.psychopy.org"]]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//analytics.opensciencetools.org/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '3']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//analytics.opensciencetools.org/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+    <!-- End Matomo Code -->
+
+
+  </head><body>
+  
+    <!-- nav bar -->
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top" height="65px">
+    <div class="container">
+      <!-- brand logo -->
+      <a class="navbar-brand" href="../../../../../">
+        
+        <img src="../../../../../_static/navbar_plugin.png" alt="PsychoPy Logo">
+        
+      </a>
+      <!-- gap between logo and links -->
+      <div style="flex-grow: 1;"></div>
+      <!-- nav links -->
+      <div class="collapse navbar-collapse nav-collapse w-100 pull-right">
+        <ul class="nav navbar-nav ml-auto">
+          
+          
+            
+<!-- insert a regular link -->
+<li>
+    <a href="../../../../../download/">
+        Install
+    </a>
+</li>
+
+
+          
+          
+          
+          <li><a href="https://plugins.psychopy.org/directory.html" class="return-btn">plugins.psychopy.org</a></li>
+          
+        </ul>
+      </div>
+      <!-- shown when screen is too small for full links, clicking it toggles links shown -->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+  </div>
+
+<!--
+
+   -->
+
+<!-- social media icon bar -->
+
+<div class="social-bar">
+
+<a href="https://github.com/psychopy/psychopy" class="github">
+    <i class="fab fa-github"></i>
+</a>
+
+<a href="https://bsky.app/profile/psychopy.org" class="bluesky">
+    <i class="fab fa-bluesky"></i>
+</a>
+
+<a href="https://www.youtube.com/watch?v=VV6qhuQgsiI&list=PLFB5A1BE51964D587" class="youtube">
+    <i class="fab fa-youtube"></i>
+</a>
+
+<a href="https://www.facebook.com/PsychoPy/" class="facebook">
+    <i class="fab fa-facebook"></i>
+</a>
+
+<a href="https://www.linkedin.com/company/open-science-tools" class="linkedin">
+    <i class="fab fa-linkedin"></i>
+</a>
+
+<a href="https://twitter.com/psychopy" class="twitter">
+    <i class="fab fa-x-twitter"></i>
+</a>
+
+</div>
+
+  
+
+<main>
+  
+  <h1>Source code for psychopy_eyetracker_gazepoint.gazepoint.gp3.eyetracker</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Part of the PsychoPy library</span>
+<span class="c1"># Copyright (C) 2012-2020 iSolver Software Solutions (C) 2021 Open Science Tools Ltd.</span>
+<span class="c1"># Distributed under the terms of the GNU General Public License (GPL).</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">errno</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">gevent</span><span class="w"> </span><span class="kn">import</span> <span class="n">socket</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">psychopy.iohub.devices.eyetracker.eye_events</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">psychopy.iohub.devices</span><span class="w"> </span><span class="kn">import</span> <span class="n">Computer</span><span class="p">,</span> <span class="n">Device</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">psychopy.iohub.devices.eyetracker</span><span class="w"> </span><span class="kn">import</span> <span class="n">EyeTrackerDevice</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">psychopy.iohub.devices.eyetracker.eye_events</span><span class="w"> </span><span class="kn">import</span> <span class="n">EyeTrackerEvent</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">psychopy.iohub.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">EyeTrackerConstants</span><span class="p">,</span> <span class="n">EventConstants</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">psychopy.iohub.errors</span><span class="w"> </span><span class="kn">import</span> <span class="n">print2err</span><span class="p">,</span> <span class="n">printExceptionDetailsToStdErr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">psychopy.iohub.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">updateSettings</span>
+
+<span class="n">ET_UNDEFINED</span> <span class="o">=</span> <span class="n">EyeTrackerConstants</span><span class="o">.</span><span class="n">UNDEFINED</span>
+<span class="n">getTime</span> <span class="o">=</span> <span class="n">Computer</span><span class="o">.</span><span class="n">getTime</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">ctypes</span><span class="w"> </span><span class="kn">import</span> <span class="n">byref</span><span class="p">,</span> <span class="n">c_int64</span><span class="p">,</span> <span class="n">windll</span>
+    <span class="n">_fcounter_</span> <span class="o">=</span> <span class="n">c_int64</span><span class="p">()</span>
+    <span class="n">_qpfreq_</span> <span class="o">=</span> <span class="n">c_int64</span><span class="p">()</span>
+    <span class="n">windll</span><span class="o">.</span><span class="n">Kernel32</span><span class="o">.</span><span class="n">QueryPerformanceFrequency</span><span class="p">(</span><span class="n">byref</span><span class="p">(</span><span class="n">_qpfreq_</span><span class="p">))</span>
+    <span class="n">_qpfreq_</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_qpfreq_</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">_winQPC_</span> <span class="o">=</span> <span class="n">windll</span><span class="o">.</span><span class="n">Kernel32</span><span class="o">.</span><span class="n">QueryPerformanceCounter</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">getLocalhostGP3Time</span><span class="p">():</span>
+        <span class="n">_winQPC_</span><span class="p">(</span><span class="n">byref</span><span class="p">(</span><span class="n">_fcounter_</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">_fcounter_</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="n">_qpfreq_</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">to_numeric</span><span class="p">(</span><span class="n">lit</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return value of a numeric literal string. If the string can not be</span>
+<span class="sd">    converted then the original string is returned.</span>
+
+<span class="sd">    :param lit:</span>
+<span class="sd">    :return:</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Handle &#39;0&#39;</span>
+    <span class="k">if</span> <span class="n">lit</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="c1"># Hex/Binary</span>
+    <span class="n">litneg</span> <span class="o">=</span> <span class="n">lit</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">lit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span> <span class="k">else</span> <span class="n">lit</span>
+    <span class="k">if</span> <span class="n">litneg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">litneg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="s1">&#39;xX&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">lit</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">litneg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="s1">&#39;bB&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">lit</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">lit</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+    <span class="c1"># Int/Float/Complex</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">lit</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">lit</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">complex</span><span class="p">(</span><span class="n">lit</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="c1"># return original str</span>
+    <span class="k">return</span> <span class="n">lit</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">GazepointSampleEvent</span><span class="p">(</span><span class="n">EyeTrackerEvent</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;GazePointSampleEvent contains the data collected from a GazePoint sample,</span>
+<span class="sd">    which can contain both gazepoint eye and biometric data, depending on the </span>
+<span class="sd">    hardware being used.</span>
+
+<span class="sd">    Fields related to eye data are a subset of the standard BinocularEyeSampleEvent.</span>
+
+<span class="sd">    Event Type ID: EventConstants.GAZEPOINT_SAMPLE</span>
+
+<span class="sd">    Event Type String: &#39;GAZEPOINT_SAMPLE&#39;</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_newDataTypes</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;left_gaze_x&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;left_gaze_y&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;left_raw_x&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;left_raw_y&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;left_pupil_measure1&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;left_pupil_measure1_type&#39;</span><span class="p">,</span> <span class="s1">&#39;u1&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;left_pupil_measure2&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;left_pupil_measure2_type&#39;</span><span class="p">,</span> <span class="s1">&#39;u1&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;right_gaze_x&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;right_gaze_y&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;right_raw_x&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;right_raw_y&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;right_pupil_measure1&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;right_pupil_measure1_type&#39;</span><span class="p">,</span> <span class="s1">&#39;u1&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;right_pupil_measure2&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;right_pupil_measure2_type&#39;</span><span class="p">,</span> <span class="s1">&#39;u1&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;dial&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;dialv&#39;</span><span class="p">,</span> <span class="s1">&#39;u1&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;gsr&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;gsrv&#39;</span><span class="p">,</span> <span class="s1">&#39;u1&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;hr&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;hrv&#39;</span><span class="p">,</span> <span class="s1">&#39;u1&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;hrp&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;u1&#39;</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="n">EVENT_TYPE_ID</span> <span class="o">=</span> <span class="n">EventConstants</span><span class="o">.</span><span class="n">GAZEPOINT_SAMPLE</span>
+    <span class="n">EVENT_TYPE_STRING</span> <span class="o">=</span> <span class="s1">&#39;GAZEPOINT_SAMPLE&#39;</span>
+    <span class="n">IOHUB_DATA_TABLE</span> <span class="o">=</span> <span class="n">EVENT_TYPE_STRING</span>
+
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">_newDataTypes</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="c1">#: The calibrated horizontal left eye position on the calibration plane.</span>
+        <span class="c1">#: This value is specified in Display Coordinate Type Units.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left_gaze_x</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: The calibrated vertical left eye position on the calibration plane.</span>
+        <span class="c1">#: This value is specified in Display Coordinate Type Units.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left_gaze_y</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: The non-calibrated x position of the calculated left eye &#39;center&#39;</span>
+        <span class="c1">#: on the camera sensor image,</span>
+        <span class="c1">#: factoring in any corneal reflection adjustments.</span>
+        <span class="c1">#: This is typically reported in some arbitrary unit space that</span>
+        <span class="c1">#: often has sub-pixel resolution due to image processing techniques</span>
+        <span class="c1">#: being applied.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left_raw_x</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: The non-calibrated y position of the calculated left eye &#39;center&#39;</span>
+        <span class="c1">#: on the camera sensor image,</span>
+        <span class="c1">#: factoring in any corneal reflection adjustments.</span>
+        <span class="c1">#: This is typically reported in some arbitrary unit space that</span>
+        <span class="c1">#: often has sub-pixel resolution due to image processing techniques</span>
+        <span class="c1">#: being applied.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left_raw_y</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: A measure related to left pupil size or diameter. The attribute</span>
+        <span class="c1">#: pupil_measure1_type defines what type the measure represents.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left_pupil_measure1</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: * EyeTrackerConstants.PUPIL_DIAMETER</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left_pupil_measure1_type</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: A second measure related to left pupil size or diameter. The attribute</span>
+        <span class="c1">#: pupil_measure2_type defines what type the measure represents.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left_pupil_measure2</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: The type of left pupil size or shape information provided in the pupil_measure2</span>
+        <span class="c1">#: attribute. Several possible pupil_measure types available:</span>
+        <span class="c1">#:</span>
+        <span class="c1">#: * EyeTrackerConstants.PUPIL_DIAMETER_MM</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left_pupil_measure2_type</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: The calibrated horizontal right eye position on the calibration plane.</span>
+        <span class="c1">#: This value is specified in Display Coordinate Type Units.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right_gaze_x</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: The calibrated vertical right eye position on the calibration plane.</span>
+        <span class="c1">#: This value is specified in Display Coordinate Type Units.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right_gaze_y</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: The non-calibrated x position of the calculated right eye &#39;center&#39;</span>
+        <span class="c1">#: on the camera sensor image,</span>
+        <span class="c1">#: factoring in any corneal reflection adjustments.</span>
+        <span class="c1">#: This is typically reported in some arbitrary unit space that</span>
+        <span class="c1">#: often has sub-pixel resolution due to image processing techniques</span>
+        <span class="c1">#: being applied.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right_raw_x</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: The non-calibrated y position of the calculated right eye &#39;center&#39;</span>
+        <span class="c1">#: on the camera sensor image,</span>
+        <span class="c1">#: factoring in any corneal reflection adjustments.</span>
+        <span class="c1">#: This is typically reported in some arbitrary unit space that</span>
+        <span class="c1">#: often has sub-pixel resolution due to image processing techniques</span>
+        <span class="c1">#: being applied.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right_raw_y</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: A measure related to right pupil size or diameter. The attribute</span>
+        <span class="c1">#: pupil_measure1_type defines what type the measure represents.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right_pupil_measure1</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: * EyeTrackerConstants.PUPIL_DIAMETER</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right_pupil_measure1_type</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: A second measure related to right pupil size or diameter. The attribute</span>
+        <span class="c1">#: pupil_measure2_type defines what type the measure represents.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right_pupil_measure2</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: * EyeTrackerConstants.PUPIL_DIAMETER_MM</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right_pupil_measure2_type</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: Dial value from Gazepoint biometrics kit, 0-1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dial</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dialv</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: GSR resistance value from Gazepoint biometrics kit, ohms</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gsr</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gsrv</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: Heart rate value from Gazepoint biometrics kit, bpm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hr</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hrv</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hrp</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: An available status byte for the eye tracker sample.</span>
+        <span class="c1">#: Meaning is completely tracker dependent.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">DeviceEvent</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="EyeTracker">
+<a class="viewcode-back" href="../../../../../coder/gazepoint/#psychopy.iohub.devices.eyetracker.hw.gazepoint.gp3.EyeTracker">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">EyeTracker</span><span class="p">(</span><span class="n">EyeTrackerDevice</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    To start iohub with a Gazepoint GP3 eye tracker device, add a GP3</span>
+<span class="sd">    device to the device dictionary passed to launchHubServer or the </span>
+<span class="sd">    experiment&#39;s iohub_config.yaml::</span>
+
+<span class="sd">        eyetracker.hw.gazepoint.gp3.EyeTracker</span>
+
+<span class="sd">    .. note:: The Gazepoint control application **must** be running</span>
+<span class="sd">              while using this interface.</span>
+<span class="sd">              </span>
+<span class="sd">    Examples:</span>
+<span class="sd">        A. Start ioHub with Gazepoint GP3 device and run tracker calibration::</span>
+<span class="sd">    </span>
+<span class="sd">            from psychopy.iohub import launchHubServer</span>
+<span class="sd">            from psychopy.core import getTime, wait</span>
+
+<span class="sd">            iohub_config = {&#39;eyetracker.hw.gazepoint.gp3.EyeTracker&#39;:</span>
+<span class="sd">                {&#39;name&#39;: &#39;tracker&#39;, &#39;device_timer&#39;: {&#39;interval&#39;: 0.005}}}</span>
+<span class="sd">                </span>
+<span class="sd">            io = launchHubServer(**iohub_config)</span>
+<span class="sd">            </span>
+<span class="sd">            # Get the eye tracker device.</span>
+<span class="sd">            tracker = io.devices.tracker</span>
+<span class="sd">                            </span>
+<span class="sd">            # run eyetracker calibration</span>
+<span class="sd">            r = tracker.runSetupProcedure()</span>
+<span class="sd">            </span>
+<span class="sd">        B. Print all eye tracker events received for 2 seconds::</span>
+<span class="sd">                        </span>
+<span class="sd">            # Check for and print any eye tracker events received...</span>
+<span class="sd">            tracker.setRecordingState(True)</span>
+<span class="sd">            </span>
+<span class="sd">            stime = getTime()</span>
+<span class="sd">            while getTime()-stime &lt; 2.0:</span>
+<span class="sd">                for e in tracker.getEvents():</span>
+<span class="sd">                    print(e)</span>
+<span class="sd">            </span>
+<span class="sd">        C. Print current eye position for 5 seconds::</span>
+<span class="sd">                        </span>
+<span class="sd">            # Check for and print current eye position every 100 msec.</span>
+<span class="sd">            stime = getTime()</span>
+<span class="sd">            while getTime()-stime &lt; 5.0:</span>
+<span class="sd">                print(tracker.getPosition())</span>
+<span class="sd">                wait(0.1)</span>
+<span class="sd">            </span>
+<span class="sd">            tracker.setRecordingState(False)</span>
+<span class="sd">            </span>
+<span class="sd">            # Stop the ioHub Server</span>
+<span class="sd">            io.quit()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># GP3 tracker times are received as msec</span>
+    <span class="c1">#</span>
+    <span class="n">DEVICE_TIMEBASE_TO_SEC</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">EVENT_CLASS_NAMES</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;GazepointSampleEvent&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;BinocularEyeSampleEvent&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FixationStartEvent&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;FixationEndEvent&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SaccadeStartEvent&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SaccadeEndEvent&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;BlinkStartEvent&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;BlinkEndEvent&#39;</span><span class="p">]</span>
+    <span class="n">_recording</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_gp3&#39;</span><span class="p">,</span> <span class="s1">&#39;_rx_buffer&#39;</span><span class="p">,</span> <span class="s1">&#39;_ttfreq&#39;</span><span class="p">,</span> <span class="s1">&#39;_last_fix_evt&#39;</span><span class="p">,</span> <span class="s1">&#39;_serverIsLocalhost&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">EyeTrackerDevice</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c1"># Holds the GP3 socket interface</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Holds data received from GP3 tracker that has not yet been parsed</span>
+        <span class="c1"># into messages</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+        <span class="c1"># Used to hold the last sample processed by iohub.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_latest_sample</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Used to hold the last valid gaze position processed by ioHub.</span>
+        <span class="c1"># If the last sample received from the GP3 indicates missing eye</span>
+        <span class="c1"># position, then this is set to None</span>
+        <span class="c1">#</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_latest_gaze_position</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Connect to the eye tracker server by default.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setConnectionState</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_serverIsLocalhost</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguration</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;network_settings&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ip_address&#39;</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+                                                                                                        <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gp3get</span><span class="p">(</span><span class="s2">&quot;TIME_TICK_FREQUENCY&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ttfreq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_waitForAck</span><span class="p">(</span><span class="s1">&#39;TIME_TICK_FREQUENCY&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;FREQ&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_fix_evt</span> <span class="o">=</span> <span class="kc">None</span>
+    
+          
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">getCalibrationDict</span><span class="p">(</span><span class="n">calib</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a dict describing the given Calibration object, respecting this </span>
+<span class="sd">        eyetracker&#39;s specific limitations.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        calib : psychopy.hardware.eyetracker.EyetrackerCalibration</span>
+<span class="sd">            Object to create a dict from</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            Dict describing the given Calibration object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># call base function</span>
+        <span class="n">asDict</span> <span class="o">=</span> <span class="n">EyeTrackerDevice</span><span class="o">.</span><span class="n">getCalibrationDict</span><span class="p">(</span><span class="n">calib</span><span class="p">)</span>
+        <span class="c1"># add gazepoint-specific attributes</span>
+        <span class="n">asDict</span><span class="p">[</span><span class="s1">&#39;use_builtin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">asDict</span><span class="p">[</span><span class="s1">&#39;target_delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">calib</span><span class="o">.</span><span class="n">targetDelay</span>
+        <span class="n">asDict</span><span class="p">[</span><span class="s1">&#39;target_duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">calib</span><span class="o">.</span><span class="n">targetDur</span>
+        <span class="c1"># remove unused attributes</span>
+        <span class="n">asDict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;auto_pace&#39;</span><span class="p">)</span>
+        <span class="n">asDict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;pacing_speed&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">asDict</span>
+
+<div class="viewcode-block" id="EyeTracker.trackerTime">
+<a class="viewcode-back" href="../../../../../coder/gazepoint/#psychopy.iohub.devices.eyetracker.hw.gazepoint.gp3.EyeTracker.trackerTime">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">trackerTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Current eye tracker time in the eye tracker&#39;s native time base.</span>
+<span class="sd">        The GP3 system uses a sec.usec timebase based on the Windows QPC,</span>
+<span class="sd">        so when running on a single computer setup, iohub can directly read</span>
+<span class="sd">        the current gazepoint time. When running with a two computer setup,</span>
+<span class="sd">        current gazepoint time is assumed to equal current local time.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: current native eye tracker time in sec.msec format.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_serverIsLocalhost</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">getLocalhostGP3Time</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">getTime</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="EyeTracker.trackerSec">
+<a class="viewcode-back" href="../../../../../coder/gazepoint/#psychopy.iohub.devices.eyetracker.hw.gazepoint.gp3.EyeTracker.trackerSec">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">trackerSec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Same as the GP3 implementation of trackerTime().</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">trackerTime</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEVICE_TIMEBASE_TO_SEC</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_sendRequest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rtype</span><span class="p">,</span> <span class="n">ID</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">params</span> <span class="o">+=</span> <span class="s1">&#39; </span><span class="si">{}</span><span class="s1">=&quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="n">rqstr</span> <span class="o">=</span> <span class="s1">&#39;&lt;</span><span class="si">{}</span><span class="s1"> ID=&quot;</span><span class="si">{}</span><span class="s1">&quot; </span><span class="si">{}</span><span class="s1"> /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rtype</span><span class="p">,</span> <span class="n">ID</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+        <span class="c1"># print2err(&quot;Sending: {}\n&quot;.format(rqstr))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">rqstr</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_gp3set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ID</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sendRequest</span><span class="p">(</span><span class="s2">&quot;SET&quot;</span><span class="p">,</span> <span class="n">ID</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_gp3get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ID</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sendRequest</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">ID</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_waitForAck</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">type_id</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">5.0</span><span class="p">):</span>
+        <span class="n">stime</span> <span class="o">=</span> <span class="n">getTime</span><span class="p">()</span>
+        <span class="k">while</span> <span class="n">getTime</span><span class="p">()</span> <span class="o">-</span> <span class="n">stime</span> <span class="o">&lt;</span> <span class="n">timeout</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_checkForNetData</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+            <span class="n">msgs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parseRxBuffer</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">msgs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">type_id</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">m</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_checkForNetData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">rxdat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">rxdat</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span> <span class="o">+=</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">rxdat</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">print2err</span><span class="p">(</span><span class="s1">&#39;***** GP3 Closed Connection *****&#39;</span><span class="p">)</span>
+                    <span class="c1"># Connection closed</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">setRecordingState</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">setConnectionState</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                    <span class="k">return</span> <span class="kc">None</span>
+
+            <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">err</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">err</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">EAGAIN</span> <span class="ow">or</span> <span class="n">err</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">EWOULDBLOCK</span> <span class="ow">or</span> <span class="n">err</span> <span class="o">==</span> <span class="s1">&#39;timed out&#39;</span><span class="p">:</span>
+                    <span class="c1"># non blocking socket found no data; it happens.</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># a valid error occurred</span>
+                    <span class="n">print2err</span><span class="p">(</span><span class="s1">&#39;***** _checkForNetData Error *****&#39;</span><span class="p">)</span>
+                    <span class="n">printExceptionDetailsToStdErr</span><span class="p">()</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_parseRxBuffer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">msgs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span><span class="p">:</span>
+            <span class="n">msg_end_ix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;/&gt;&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">msg_end_ix</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">msgtxt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span><span class="p">[:</span><span class="n">msg_end_ix</span><span class="p">]</span>
+                <span class="n">msg_start_ix</span> <span class="o">=</span> <span class="n">msgtxt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;&lt;&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">msgtxt</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">msg_start_ix</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">msgtxt</span> <span class="o">=</span> <span class="n">msgtxt</span><span class="p">[</span><span class="n">msg_start_ix</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+                    <span class="n">msgtoks</span> <span class="o">=</span> <span class="n">msgtxt</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">msgtoks</span><span class="p">:</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">msgtoks</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">msgtoks</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+                            <span class="n">tkey</span><span class="p">,</span> <span class="n">tval</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span>
+                            <span class="k">try</span><span class="p">:</span>
+                                <span class="n">msg</span><span class="p">[</span><span class="n">tkey</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_numeric</span><span class="p">(</span><span class="n">tval</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">))</span>
+                            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                                <span class="n">msg</span><span class="p">[</span><span class="n">tkey</span><span class="p">]</span> <span class="o">=</span> <span class="n">tval</span>
+                        <span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">print2err</span><span class="p">(</span><span class="s1">&#39;Incomplete Message Found: [&#39;</span><span class="p">,</span> <span class="n">msgtxt</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span><span class="p">[</span><span class="n">msg_end_ix</span> <span class="o">+</span> <span class="mi">2</span><span class="p">:]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">msgs</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">setConnectionState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enable</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Connects or disconnects from the GP3 eye tracking hardware.</span>
+
+<span class="sd">        By default, when ioHub is started, a connection is automatically made,</span>
+<span class="sd">        and when the experiment completes and ioHub is closed, so is the GP3</span>
+<span class="sd">        connection.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            enable (bool): True = enable the connection, False = disable the connection.</span>
+
+<span class="sd">        Return:</span>
+<span class="sd">            bool: indicates the current connection state to the eye tracking hardware.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">enable</span> <span class="ow">is</span> <span class="kc">True</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
+                <span class="n">haddress</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getConfiguration</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;network_settings&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ip_address&#39;</span><span class="p">)</span>
+                <span class="n">hport</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getConfiguration</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;network_settings&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">))</span>
+                <span class="n">address</span> <span class="o">=</span> <span class="p">(</span><span class="n">haddress</span><span class="p">,</span> <span class="n">hport</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
+                <span class="n">init_connection_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_POG_LEFT&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_POG_RIGHT&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_PUPIL_LEFT&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_PUPIL_RIGHT&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_POG_FIX&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_POG_BEST&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_EYE_LEFT&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_EYE_RIGHT&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_COUNTER&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_DIAL&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_GSR&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_HR&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_HR_PULSE&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_TIME&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_TIME_TICK&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="n">init_connection_str</span> <span class="o">+=</span> <span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_DATA&quot; STATE=&quot;0&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">init_connection_str</span><span class="p">))</span>
+
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_waitForAck</span><span class="p">(</span><span class="s1">&#39;ENABLE_SEND_TIME_TICK&#39;</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+
+            <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">10061</span><span class="p">:</span>
+                    <span class="n">print2err</span><span class="p">(</span><span class="s1">&#39;***** Socket Error: Check Gazepoint control software is running *****&#39;</span><span class="p">)</span>
+                <span class="n">print2err</span><span class="p">(</span><span class="s1">&#39;Error connecting to GP3 &#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">enable</span> <span class="ow">is</span> <span class="kc">False</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">setRecordingState</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="n">print2err</span><span class="p">(</span><span class="s1">&#39;Problem disconnecting from device - GP3&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">isConnected</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">isConnected</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        isConnected returns whether the GP3 is connected to the experiment</span>
+<span class="sd">        PC and if the tracker state is valid. Returns True if the tracker can</span>
+<span class="sd">        be put into Record mode, etc and False if there is an error with the</span>
+<span class="sd">        tracker or tracker connection with the experiment PC.</span>
+
+<span class="sd">        Return:</span>
+<span class="sd">            bool:  True = the eye tracking hardware is connected. False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">sendMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message_contents</span><span class="p">,</span> <span class="n">time_offset</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The sendMessage method sends the message_contents str to the GP3.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">time_offset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">print2err</span><span class="p">(</span><span class="s1">&#39;Warning: GP3 EyeTracker.sendMessage time_offset argument is ignored.&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">isRecordingEnabled</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">strMessage</span> <span class="o">=</span> <span class="s1">&#39;&lt;SET ID=&quot;USER_DATA&quot; VALUE=&quot;</span><span class="si">{0}</span><span class="s1">&quot;/&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message_contents</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">strMessage</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">print2err</span><span class="p">(</span><span class="s1">&#39;Problems sending message: </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message_contents</span><span class="p">))</span>
+            <span class="n">printExceptionDetailsToStdErr</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">EyeTrackerConstants</span><span class="o">.</span><span class="n">EYETRACKER_OK</span>
+
+<div class="viewcode-block" id="EyeTracker.enableEventReporting">
+<a class="viewcode-back" href="../../../../../coder/gazepoint/#psychopy.iohub.devices.eyetracker.hw.gazepoint.gp3.EyeTracker.enableEventReporting">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">enableEventReporting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        enableEventReporting is functionally identical to the eye tracker</span>
+<span class="sd">        device specific setRecordingState method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setRecordingState</span><span class="p">(</span><span class="n">enabled</span><span class="p">)</span>
+            <span class="n">enabled</span> <span class="o">=</span> <span class="n">EyeTrackerDevice</span><span class="o">.</span><span class="n">enableEventReporting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enabled</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">enabled</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">print2err</span><span class="p">(</span><span class="s1">&#39;Exception in EyeTracker.enableEventReporting: &#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="n">printExceptionDetailsToStdErr</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="EyeTracker.setRecordingState">
+<a class="viewcode-back" href="../../../../../coder/gazepoint/#psychopy.iohub.devices.eyetracker.hw.gazepoint.gp3.EyeTracker.setRecordingState">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setRecordingState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">recording</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        setRecordingState is used to start or stop the recording of data from the eye tracking device.</span>
+
+<span class="sd">        args:</span>
+<span class="sd">           recording (bool): if True, the eye tracker will start recordng available</span>
+<span class="sd">              eye data and sending it to the experiment program if data streaming</span>
+<span class="sd">              was enabled for the device. If recording == False, then the eye</span>
+<span class="sd">              tracker stops recording eye data and streaming it to the experiment.</span>
+
+<span class="sd">        If the eye tracker is already recording, and setRecordingState(True) is</span>
+<span class="sd">        called, the eye tracker will simple continue recording and the method call</span>
+<span class="sd">        is a no-op. Likewise if the system has already stopped recording and</span>
+<span class="sd">        setRecordingState(False) is called again.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            recording (bool): if True, the eye tracker will start recordng data.; false = stop recording data.</span>
+
+<span class="sd">        Return:trackerTime</span>
+<span class="sd">            bool: the current recording state of the eye tracking device</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">current_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">isRecordingEnabled</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span> <span class="ow">and</span> <span class="n">recording</span> <span class="ow">is</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">current_state</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span>
+                <span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_DATA&quot; STATE=&quot;1&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="p">))</span>
+            <span class="n">rxdat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_checkForNetData</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">rxdat</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">EyeTracker</span><span class="o">.</span><span class="n">_recording</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">return</span> <span class="n">EyeTrackerDevice</span><span class="o">.</span><span class="n">enableEventReporting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+            <span class="n">EyeTracker</span><span class="o">.</span><span class="n">_recording</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span> <span class="ow">and</span> <span class="n">recording</span> <span class="ow">is</span> <span class="kc">False</span> <span class="ow">and</span> <span class="n">current_state</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_rx_buffer</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span>
+                <span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;&lt;SET ID=&quot;ENABLE_SEND_DATA&quot; STATE=&quot;0&quot; /&gt;</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_checkForNetData</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">EyeTracker</span><span class="o">.</span><span class="n">_recording</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_latest_sample</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_latest_gaze_position</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">EyeTrackerDevice</span><span class="o">.</span><span class="n">enableEventReporting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">recording</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="EyeTracker.isRecordingEnabled">
+<a class="viewcode-back" href="../../../../../coder/gazepoint/#psychopy.iohub.devices.eyetracker.hw.gazepoint.gp3.EyeTracker.isRecordingEnabled">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">isRecordingEnabled</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        isRecordingEnabled returns the recording state from the eye tracking device.</span>
+
+<span class="sd">        Return:</span>
+<span class="sd">            bool: True == the device is recording data; False == Recording is not occurring</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_recording</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="EyeTracker.runSetupProcedure">
+<a class="viewcode-back" href="../../../../../coder/gazepoint/#psychopy.iohub.devices.eyetracker.hw.gazepoint.gp3.EyeTracker.runSetupProcedure">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">runSetupProcedure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">calibration_args</span><span class="o">=</span><span class="p">{}):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Start the eye tracker calibration procedure.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cal_config</span> <span class="o">=</span> <span class="n">updateSettings</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getConfiguration</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;calibration&#39;</span><span class="p">),</span> <span class="n">calibration_args</span><span class="p">)</span>
+        <span class="c1">#print2err(&quot;gp3 cal_config:&quot;, cal_config)</span>
+
+        <span class="n">use_builtin</span> <span class="o">=</span> <span class="n">cal_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;use_builtin&#39;</span><span class="p">)</span>
+        <span class="n">targ_timeout</span> <span class="o">=</span> <span class="n">cal_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_duration&#39;</span><span class="p">)</span>
+        <span class="n">targ_delay</span> <span class="o">=</span> <span class="n">cal_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_delay&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gp3set</span><span class="p">(</span><span class="s1">&#39;CALIBRATE_TIMEOUT&#39;</span><span class="p">,</span> <span class="n">VALUE</span><span class="o">=</span><span class="n">targ_timeout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gp3set</span><span class="p">(</span><span class="s1">&#39;CALIBRATE_DELAY&#39;</span><span class="p">,</span> <span class="n">VALUE</span><span class="o">=</span><span class="n">targ_delay</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_waitForAck</span><span class="p">(</span><span class="s1">&#39;CALIBRATE_DELAY&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">use_builtin</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_gp3set</span><span class="p">(</span><span class="s1">&#39;CALIBRATE_RESET&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_gp3set</span><span class="p">(</span><span class="s1">&#39;CALIBRATE_SHOW&#39;</span><span class="p">,</span> <span class="n">STATE</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_gp3set</span><span class="p">(</span><span class="s1">&#39;CALIBRATE_START&#39;</span><span class="p">,</span> <span class="n">STATE</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">.calibration</span><span class="w"> </span><span class="kn">import</span> <span class="n">GazepointCalibrationProcedure</span>
+            <span class="n">calibration</span> <span class="o">=</span> <span class="n">GazepointCalibrationProcedure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">calibration_args</span><span class="p">)</span>
+
+            <span class="n">calibration</span><span class="o">.</span><span class="n">runCalibration</span><span class="p">()</span>
+
+            <span class="n">calibration</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+            <span class="c1"># calibration._unregisterEventMonitors()</span>
+            <span class="n">calibration</span><span class="o">.</span><span class="n">clearAllEventBuffers</span><span class="p">()</span>
+
+        <span class="c1"># Get calibration result and return to experiment process.</span>
+        <span class="n">cal_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_waitForAck</span><span class="p">(</span><span class="s1">&#39;CALIB_RESULT&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">30.0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cal_result</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_gp3set</span><span class="p">(</span><span class="s1">&#39;CALIBRATE_SHOW&#39;</span><span class="p">,</span> <span class="n">STATE</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_gp3set</span><span class="p">(</span><span class="s1">&#39;CALIBRATE_START&#39;</span><span class="p">,</span> <span class="n">STATE</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_gp3get</span><span class="p">(</span><span class="s1">&#39;CALIBRATE_RESULT_SUMMARY&#39;</span><span class="p">)</span>
+            <span class="k">del</span> <span class="n">cal_result</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+            <span class="k">del</span> <span class="n">cal_result</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span>
+
+            <span class="n">cal_summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_waitForAck</span><span class="p">(</span><span class="s1">&#39;CALIBRATE_RESULT_SUMMARY&#39;</span><span class="p">)</span>
+            <span class="k">del</span> <span class="n">cal_summary</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+            <span class="k">del</span> <span class="n">cal_summary</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span>
+            <span class="n">cal_result</span><span class="p">[</span><span class="s1">&#39;SUMMARY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cal_summary</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gp3set</span><span class="p">(</span><span class="s1">&#39;CALIBRATE_SHOW&#39;</span><span class="p">,</span> <span class="n">STATE</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gp3set</span><span class="p">(</span><span class="s1">&#39;CALIBRATE_START&#39;</span><span class="p">,</span> <span class="n">STATE</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">cal_result</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method is called by iohub every n msec based on the polling interval set in the eye tracker config.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">isRecordingEnabled</span><span class="p">():</span>
+                <span class="k">return</span>
+
+            <span class="n">logged_time</span> <span class="o">=</span> <span class="n">Computer</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span>
+            <span class="n">tracker_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trackerTime</span><span class="p">()</span>
+
+            <span class="c1"># Check for any new rx data from gp3 socket.</span>
+            <span class="c1"># If None is returned, that means the gp3 closed the socket</span>
+            <span class="c1"># connection.</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_checkForNetData</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span>
+
+            <span class="c1"># Parse any rx text received from the gp3 into msg dicts.</span>
+            <span class="n">msgs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parseRxBuffer</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">msgs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;REC&#39;</span><span class="p">:</span>
+                    <span class="n">binocSample</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parseSampleFromMsg</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">logged_time</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_addNativeEventToBuffer</span><span class="p">(</span><span class="n">binocSample</span><span class="p">)</span>
+
+                    <span class="c1"># left / right eye pos avg. data</span>
+                    <span class="n">combined_gaze_x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGX&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+                    <span class="n">combined_gaze_y</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGY&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+                    <span class="n">combined_gaze_x</span><span class="p">,</span> <span class="n">combined_gaze_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eyeTrackerToDisplayCoords</span><span class="p">(</span>
+                        <span class="p">(</span><span class="n">combined_gaze_x</span><span class="p">,</span> <span class="n">combined_gaze_y</span><span class="p">))</span>
+
+                    <span class="k">if</span> <span class="n">combined_gaze_x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">combined_gaze_y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_latest_gaze_position</span> <span class="o">=</span> <span class="p">(</span><span class="n">combined_gaze_x</span><span class="p">,</span> <span class="n">combined_gaze_y</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_latest_gaze_position</span> <span class="o">=</span> <span class="kc">None</span>
+
+                    <span class="k">for</span> <span class="n">fix_evt</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parseFixationFromMsg</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">logged_time</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_addNativeEventToBuffer</span><span class="p">(</span><span class="n">fix_evt</span><span class="p">)</span>
+
+                <span class="k">elif</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;ACK&#39;</span><span class="p">:</span>
+                    <span class="k">pass</span>  <span class="c1"># print2err(&#39;ACK Received: &#39;, m)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Message type is not being handled.</span>
+                    <span class="n">print2err</span><span class="p">(</span><span class="s1">&#39;UNHANDLED GP3 MESSAGE: &#39;</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_last_poll_time</span> <span class="o">=</span> <span class="n">logged_time</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">print2err</span><span class="p">(</span><span class="s1">&#39;ERROR occurred during GP3 Sample Callback.&#39;</span><span class="p">)</span>
+            <span class="n">printExceptionDetailsToStdErr</span><span class="p">()</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_parseFixationFromMsg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">logged_time</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">):</span>
+        <span class="n">fix_evts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">fix_valid</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGV&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">fix_valid</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">fix_x</span><span class="p">,</span> <span class="n">fix_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eyeTrackerToDisplayCoords</span><span class="p">((</span><span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGX&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">),</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGY&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)))</span>
+            <span class="n">fix_stime</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGS&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+            <span class="n">fix_duration</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGD&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+            <span class="n">fix_id</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGID&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">FPOGID</span><span class="o">=</span><span class="n">fix_id</span><span class="p">,</span> <span class="n">FPOGV</span><span class="o">=</span><span class="n">fix_valid</span><span class="p">,</span> <span class="n">FPOGX</span><span class="o">=</span><span class="n">fix_x</span><span class="p">,</span> <span class="n">FPOGY</span><span class="o">=</span><span class="n">fix_y</span><span class="p">,</span> <span class="n">FPOGS</span><span class="o">=</span><span class="n">fix_stime</span><span class="p">,</span> <span class="n">FPOGD</span><span class="o">=</span><span class="n">fix_duration</span><span class="p">,</span>
+                     <span class="n">TIME</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;TIME&#39;</span><span class="p">)),</span> <span class="n">TIME_TICK</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;TIME_TICK&#39;</span><span class="p">)))</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_fix_evt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># Create start fixation evt based on m</span>
+                <span class="n">fix_evts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_createStartFixEvt</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">logged_time</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">fix_id</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_fix_evt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGID&#39;</span><span class="p">):</span>
+                <span class="c1"># Create Fixation end evt based on self._last_fix_evt</span>
+                <span class="n">fix_evts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_createEndFixEvt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_last_fix_evt</span><span class="p">,</span> <span class="n">logged_time</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">)</span>
+                <span class="c1"># Create start fixation evt based on m</span>
+                <span class="n">fstart</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_createStartFixEvt</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">logged_time</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">)</span>
+                <span class="n">fix_evts</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">fstart</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_last_fix_evt</span> <span class="o">=</span> <span class="n">m</span>
+
+        <span class="k">return</span> <span class="n">fix_evts</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_createStartFixEvt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">logged_time</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">):</span>
+        <span class="c1"># Create start fixation evt based on m</span>
+        <span class="c1"># GP3 does not create separate left and right eye fix evts, so we</span>
+        <span class="c1"># create a left and right fix evt each time.</span>
+        <span class="n">gaze</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGX&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">),</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGY&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+
+        <span class="n">fix_dur</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGD&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_serverIsLocalhost</span><span class="p">:</span>
+            <span class="n">evt_tick_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;TIME_TICK&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">))</span>
+            <span class="n">evt_tick_sec</span> <span class="o">=</span> <span class="n">evt_tick_time</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ttfreq</span>
+            <span class="n">sample_delay</span> <span class="o">=</span> <span class="n">tracker_time</span> <span class="o">-</span> <span class="n">evt_tick_sec</span>
+            <span class="n">iohub_time</span> <span class="o">=</span> <span class="n">logged_time</span> <span class="o">-</span> <span class="n">sample_delay</span> <span class="o">-</span> <span class="n">fix_dur</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sample_delay</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">iohub_time</span> <span class="o">=</span> <span class="n">logged_time</span> <span class="o">-</span> <span class="n">sample_delay</span> <span class="o">-</span> <span class="n">fix_dur</span>
+
+        <span class="n">device_time</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGS&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">confidence_interval</span> <span class="o">=</span> <span class="n">logged_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_poll_time</span>
+        <span class="n">etype</span> <span class="o">=</span> <span class="n">EventConstants</span><span class="o">.</span><span class="n">FIXATION_START</span>
+        <span class="n">estatus</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">sel</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="mi">0</span><span class="p">,</span>  <span class="c1"># exp ID</span>
+            <span class="mi">0</span><span class="p">,</span>  <span class="c1"># sess ID</span>
+            <span class="mi">0</span><span class="p">,</span>  <span class="c1"># device id (not currently used)</span>
+            <span class="n">Device</span><span class="o">.</span><span class="n">_getNextEventID</span><span class="p">(),</span>  <span class="c1"># event ID</span>
+            <span class="n">etype</span><span class="p">,</span>  <span class="c1"># event type</span>
+            <span class="n">device_time</span><span class="p">,</span>
+            <span class="n">logged_time</span><span class="p">,</span>
+            <span class="n">iohub_time</span><span class="p">,</span>
+            <span class="n">confidence_interval</span><span class="p">,</span>
+            <span class="n">sample_delay</span><span class="p">,</span>
+            <span class="mi">0</span><span class="p">,</span>
+            <span class="n">EyeTrackerConstants</span><span class="o">.</span><span class="n">LEFT_EYE</span><span class="p">,</span>  <span class="c1"># eye</span>
+            <span class="n">gaze</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>  <span class="c1"># gaze x</span>
+            <span class="n">gaze</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>  <span class="c1"># gaze y</span>
+            <span class="n">ET_UNDEFINED</span><span class="p">,</span>  <span class="c1"># gaze z</span>
+            <span class="n">ET_UNDEFINED</span><span class="p">,</span>  <span class="c1"># angle x</span>
+            <span class="n">ET_UNDEFINED</span><span class="p">,</span>  <span class="c1"># angle y</span>
+            <span class="n">ET_UNDEFINED</span><span class="p">,</span>  <span class="c1"># raw x</span>
+            <span class="n">ET_UNDEFINED</span><span class="p">,</span>  <span class="c1"># raw y</span>
+            <span class="n">ET_UNDEFINED</span><span class="p">,</span>  <span class="c1"># pupil measure 1</span>
+            <span class="n">ET_UNDEFINED</span><span class="p">,</span>  <span class="c1"># pupil measure type 1</span>
+            <span class="n">ET_UNDEFINED</span><span class="p">,</span>  <span class="c1"># pupil measure 2</span>
+            <span class="n">ET_UNDEFINED</span><span class="p">,</span>  <span class="c1"># pupil measure 2 type</span>
+            <span class="n">ET_UNDEFINED</span><span class="p">,</span>  <span class="c1"># ppd x</span>
+            <span class="n">ET_UNDEFINED</span><span class="p">,</span>  <span class="c1"># ppd y</span>
+            <span class="n">ET_UNDEFINED</span><span class="p">,</span>  <span class="c1"># velocity x</span>
+            <span class="n">ET_UNDEFINED</span><span class="p">,</span>  <span class="c1"># velocity y</span>
+            <span class="n">ET_UNDEFINED</span><span class="p">,</span>  <span class="c1"># velocity xy</span>
+            <span class="n">estatus</span>  <span class="c1"># status</span>
+        <span class="p">]</span>
+
+        <span class="n">ser</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sel</span><span class="p">)</span>
+        <span class="n">ser</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">Device</span><span class="o">.</span><span class="n">_getNextEventID</span><span class="p">()</span>
+        <span class="n">ser</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="n">EyeTrackerConstants</span><span class="o">.</span><span class="n">RIGHT_EYE</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="n">sel</span><span class="p">,</span> <span class="n">ser</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_createEndFixEvt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">logged_time</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">):</span>
+        <span class="c1"># Create end fixation evt based on m</span>
+        <span class="n">etype</span> <span class="o">=</span> <span class="n">EventConstants</span><span class="o">.</span><span class="n">FIXATION_END</span>
+        <span class="n">estatus</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">gaze</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGX&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">),</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGY&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">fix_dur</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGD&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">device_time</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FPOGS&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span> <span class="o">+</span> <span class="n">fix_dur</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_serverIsLocalhost</span><span class="p">:</span>
+            <span class="n">evt_tick_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;TIME_TICK&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">))</span>
+            <span class="n">evt_tick_sec</span> <span class="o">=</span> <span class="n">evt_tick_time</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ttfreq</span>
+            <span class="n">sample_delay</span> <span class="o">=</span> <span class="n">tracker_time</span> <span class="o">-</span> <span class="n">evt_tick_sec</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sample_delay</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">confidence_interval</span> <span class="o">=</span> <span class="n">logged_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_poll_time</span>
+        <span class="n">iohub_time</span> <span class="o">=</span> <span class="n">logged_time</span> <span class="o">-</span> <span class="n">sample_delay</span>
+
+        <span class="n">eel</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span>
+               <span class="mi">0</span><span class="p">,</span>
+               <span class="mi">0</span><span class="p">,</span>  <span class="c1"># device id (not currently used)</span>
+               <span class="n">Device</span><span class="o">.</span><span class="n">_getNextEventID</span><span class="p">(),</span>
+               <span class="n">etype</span><span class="p">,</span>
+               <span class="n">device_time</span><span class="p">,</span>
+               <span class="n">logged_time</span><span class="p">,</span>
+               <span class="n">iohub_time</span><span class="p">,</span>
+               <span class="n">confidence_interval</span><span class="p">,</span>
+               <span class="n">sample_delay</span><span class="p">,</span>
+               <span class="mi">0</span><span class="p">,</span>
+               <span class="n">EyeTrackerConstants</span><span class="o">.</span><span class="n">LEFT_EYE</span><span class="p">,</span>
+               <span class="n">fix_dur</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">gaze</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+               <span class="n">gaze</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">ET_UNDEFINED</span><span class="p">,</span>
+               <span class="n">estatus</span>
+               <span class="p">]</span>
+
+        <span class="n">eer</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">eel</span><span class="p">)</span>
+        <span class="n">eer</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">Device</span><span class="o">.</span><span class="n">_getNextEventID</span><span class="p">()</span>
+        <span class="n">eer</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="n">EyeTrackerConstants</span><span class="o">.</span><span class="n">RIGHT_EYE</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="n">eel</span><span class="p">,</span> <span class="n">eer</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_parseSampleFromMsg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">logged_time</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">):</span>
+        <span class="c1"># Always use GAZEPOINT_SAMPLE</span>
+        <span class="n">event_type</span> <span class="o">=</span> <span class="n">EventConstants</span><span class="o">.</span><span class="n">GAZEPOINT_SAMPLE</span>
+
+        <span class="c1"># in seconds, take from the REC TIME field</span>
+        <span class="n">event_timestamp</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;TIME&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_serverIsLocalhost</span><span class="p">:</span>
+            <span class="n">evt_tick_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;TIME_TICK&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">))</span>
+            <span class="n">evt_tick_sec</span> <span class="o">=</span> <span class="n">evt_tick_time</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ttfreq</span>
+            <span class="n">sample_delay</span> <span class="o">=</span> <span class="n">tracker_time</span> <span class="o">-</span> <span class="n">evt_tick_sec</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sample_delay</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">iohub_time</span> <span class="o">=</span> <span class="n">logged_time</span> <span class="o">-</span> <span class="n">sample_delay</span>
+
+        <span class="n">confidence_interval</span> <span class="o">=</span> <span class="n">logged_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_poll_time</span>
+
+        <span class="n">left_gaze_x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LPOGX&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">left_gaze_y</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LPOGY&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">left_gaze_x</span><span class="p">,</span> <span class="n">left_gaze_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eyeTrackerToDisplayCoords</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">left_gaze_x</span><span class="p">,</span> <span class="n">left_gaze_y</span><span class="p">))</span>
+        <span class="n">left_pupil_size</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s1">&#39;LPD&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>  <span class="c1"># diameter of pupil in pixels</span>
+        <span class="n">left_pupil_size_2</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;LPUPILD&quot;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>  <span class="c1"># diameter of pupil in meters (sic!)</span>
+
+        <span class="n">right_gaze_x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;RPOGX&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">right_gaze_y</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;RPOGY&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">right_gaze_x</span><span class="p">,</span> <span class="n">right_gaze_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eyeTrackerToDisplayCoords</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">right_gaze_x</span><span class="p">,</span> <span class="n">right_gaze_y</span><span class="p">))</span>
+        <span class="n">right_pupil_size</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s1">&#39;RPD&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>  <span class="c1"># diameter of pupil in pixels</span>
+        <span class="n">right_pupil_size_2</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;RPUPILD&quot;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>  <span class="c1"># diameter of pupil in meters (sic!)</span>
+
+        <span class="c1">#</span>
+        <span class="c1"># The X and Y-coordinates of the left and right eye pupil</span>
+        <span class="c1"># in the camera image, as a fraction of the</span>
+        <span class="c1"># camera image size.</span>
+        <span class="n">left_raw_x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LPCX&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">left_raw_y</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LPCY&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">right_raw_x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;RPCX&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">right_raw_y</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;RPCY&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+
+        <span class="n">left_eye_status</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LPOGV&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">right_eye_status</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;RPOGV&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+
+        <span class="n">dial</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DIAL&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">dialv</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DIALV&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">gsr</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;GSR&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">gsrv</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;GSRV&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">hr</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;HR&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">hrv</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;HRV&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+        <span class="n">hrp</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;HRP&#39;</span><span class="p">,</span> <span class="n">ET_UNDEFINED</span><span class="p">)</span>
+
+        <span class="c1"># 0 = both eyes OK</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">left_eye_status</span> <span class="o">==</span> <span class="n">right_eye_status</span> <span class="ow">and</span> <span class="n">right_eye_status</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># both eyes are missing</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="mi">22</span>
+        <span class="k">elif</span> <span class="n">left_eye_status</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Just left eye missing</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="k">elif</span> <span class="n">right_eye_status</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Just right eye missing</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="mi">2</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="mi">0</span><span class="p">,</span>  <span class="c1"># experiment_id, iohub fills in automatically</span>
+            <span class="mi">0</span><span class="p">,</span>  <span class="c1"># session_id, iohub fills in automatically</span>
+            <span class="mi">0</span><span class="p">,</span>  <span class="c1"># device id, keep at 0</span>
+            <span class="n">Device</span><span class="o">.</span><span class="n">_getNextEventID</span><span class="p">(),</span>  <span class="c1"># iohub event unique ID</span>
+            <span class="n">event_type</span><span class="p">,</span>  <span class="c1"># BINOCULAR_EYE_SAMPLE</span>
+            <span class="n">event_timestamp</span><span class="p">,</span>  <span class="c1"># eye tracker device time stamp</span>
+            <span class="n">logged_time</span><span class="p">,</span>  <span class="c1"># time _poll is called</span>
+            <span class="n">iohub_time</span><span class="p">,</span>
+            <span class="n">confidence_interval</span><span class="p">,</span>
+            <span class="n">sample_delay</span><span class="p">,</span>
+            <span class="mi">0</span><span class="p">,</span>
+            <span class="n">left_gaze_x</span><span class="p">,</span>
+            <span class="n">left_gaze_y</span><span class="p">,</span>
+            <span class="n">left_raw_x</span><span class="p">,</span>
+            <span class="n">left_raw_y</span><span class="p">,</span>
+            <span class="n">left_pupil_size</span><span class="p">,</span>
+            <span class="n">EyeTrackerConstants</span><span class="o">.</span><span class="n">PUPIL_DIAMETER</span><span class="p">,</span>
+            <span class="n">left_pupil_size_2</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">,</span>  <span class="c1"># converting to MM</span>
+            <span class="n">EyeTrackerConstants</span><span class="o">.</span><span class="n">PUPIL_DIAMETER_MM</span><span class="p">,</span>
+            <span class="n">right_gaze_x</span><span class="p">,</span>
+            <span class="n">right_gaze_y</span><span class="p">,</span>
+            <span class="n">right_raw_x</span><span class="p">,</span>
+            <span class="n">right_raw_y</span><span class="p">,</span>
+            <span class="n">right_pupil_size</span><span class="p">,</span>
+            <span class="n">EyeTrackerConstants</span><span class="o">.</span><span class="n">PUPIL_DIAMETER</span><span class="p">,</span>
+            <span class="n">right_pupil_size_2</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">,</span>  <span class="c1"># converting to MM</span>
+            <span class="n">EyeTrackerConstants</span><span class="o">.</span><span class="n">PUPIL_DIAMETER_MM</span><span class="p">,</span>
+            <span class="n">dial</span><span class="p">,</span>
+            <span class="n">dialv</span><span class="p">,</span>
+            <span class="n">gsr</span><span class="p">,</span>
+            <span class="n">gsrv</span><span class="p">,</span>
+            <span class="n">hr</span><span class="p">,</span>
+            <span class="n">hrv</span><span class="p">,</span>
+            <span class="n">hrp</span><span class="p">,</span>
+            <span class="n">status</span>
+        <span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_getIOHubEventObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">native_event_data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The _getIOHubEventObject method is called by the ioHub Process to</span>
+<span class="sd">        convert new native device event objects that have been received to the</span>
+<span class="sd">        appropriate ioHub Event type representation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_latest_sample</span> <span class="o">=</span> <span class="n">native_event_data</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_latest_sample</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_eyeTrackerToDisplayCoords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eyetracker_point</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts GP3 gaze positions to the Display device coordinate space.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gaze_x</span><span class="p">,</span> <span class="n">gaze_y</span> <span class="o">=</span> <span class="n">eyetracker_point</span>
+        <span class="n">left</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_display_device</span><span class="o">.</span><span class="n">getCoordBounds</span><span class="p">()</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="p">,</span> <span class="n">top</span> <span class="o">-</span> <span class="n">bottom</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="n">w</span> <span class="o">*</span> <span class="n">gaze_x</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">+</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">gaze_y</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_displayToEyeTrackerCoords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">display_x</span><span class="p">,</span> <span class="n">display_y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts a Display device point to GP3 gaze position coordinate space.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">left</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_display_device</span><span class="o">.</span><span class="n">getCoordBounds</span><span class="p">()</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="p">,</span> <span class="n">top</span> <span class="o">-</span> <span class="n">bottom</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="n">left</span> <span class="o">-</span> <span class="n">display_x</span><span class="p">)</span> <span class="o">/</span> <span class="n">w</span><span class="p">,</span> <span class="p">(</span><span class="n">top</span> <span class="o">-</span> <span class="n">display_y</span><span class="p">)</span> <span class="o">/</span> <span class="n">h</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gp3</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setRecordingState</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setConnectionState</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">EyeTrackerDevice</span><span class="o">.</span><span class="n">_close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+</pre></div>
+
+</div>
+<div class="col-md-12 content">
+  <br/><a href="#" class="pull-right">Back to top</a>
+</div>
+<footer class="footer">
+  <div class="container">
+    <span class="pull-right">
+      
+        
+      <br/>
+
+          &copy; 2002-2018 <a href="https://www.peirce.org.uk/">Jonathan Peirce</a><br/>
+          &copy; 2019 <a href="https://opensciencetools.org/">Open Science Tools Ltd.</a><br/><br/>
+        PsychoPy<sup>®</sup> and Pavlovia<sup>®</sup> are registered trademarks of Open Science Tools Ltd.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.1.3.<br/><br/>
+    </span>
+
+    <a href="http://www.nottingham.ac.uk/"><img src="../../../../../_static/UoN_Supported_RGB.png", alt="Uni of Nottingham" width=200></a>
+  </div>
+
+</footer>
+  </body>
+</html>
